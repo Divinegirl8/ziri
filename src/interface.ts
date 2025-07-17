@@ -6,4 +6,11 @@ export interface FilledButtonProps {
     pathname?: string;
     width: string;
   }
+
+  export interface LoginFormData {
+    email: string;
+    password: string;
+    rememberMe: boolean;
+}
+
   

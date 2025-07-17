@@ -2,12 +2,8 @@ import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import logo from '../assets/logo.svg'
 import laptop from '../assets/laptop.svg'
+import type { LoginFormData } from '../interface';
 
-interface LoginFormData {
-    email: string;
-    password: string;
-    rememberMe: boolean;
-}
 
 
 const SignIn: React.FC = () => {

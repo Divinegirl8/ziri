@@ -15,7 +15,7 @@ const Nav: React.FC = () => {
         <div className='flex items-center gap-20'>
           {/* Logo */}
           <div>
-            <img src={logo} alt="Logo" className="w-[7rem] h-auto object-contain" />
+            <img src={logo} alt="Logo" className="md:w-[7rem] w-[5rem] h-auto object-contain" />
           </div>
 
           {/* Nav Links (desktop only) */}
