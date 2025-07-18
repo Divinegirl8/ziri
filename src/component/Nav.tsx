@@ -8,7 +8,7 @@ const Nav: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white px-6 md:px-[5rem] py-6  relative font-['Manrope']">
+    <nav className="bg-white px-6 xl:px-[5rem] py-6  relative font-['Manrope']">
     
       <div className='flex justify-between items-center'>
         {/* Left: Logo + Nav Links (desktop only) */}
