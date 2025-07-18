@@ -4,12 +4,10 @@ import logo from '../assets/logo.svg'
 import laptop from '../assets/laptop.svg'
 import type { LoginFormData } from '../interface';
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
 
 
 
 const SignIn: React.FC = () => {
-    const navigate = useNavigate();
     const [formData, setFormData] = useState<LoginFormData>({
         email: '',
         password: '',
@@ -64,7 +62,6 @@ const SignIn: React.FC = () => {
             console.log('Sign-in successful:', data);
             setIsLoading(false);
             alert("Sign-in successful!");
-            navigate("/financeHomepage")
         } catch (error) {
             setIsLoading(false);
             console.error('Sign-in error:', error);
