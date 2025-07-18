@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
     <>
       <div className={`flex flex-col md:flex-row font-['Manrope'] items-center justify-center md:justify-between xl:px-20 px-8 gap-10 py-20 ${style.hero}`}>
       <div className="flex flex-col gap-8 flex-1 max-w-none md:max-w-lg lg:max-w-xl xl:max-w-2xl">
-        <div className="flex flex-row items-start gap-4">
+        <div className="flex flex-row items-center gap-4">
             <h1 className={`lg:text-[50px] md:text-[40px] font-semibold md:w-[35rem] !leading-[1.5] ${style.heroTxt}`}>Welcome to Gooziri, Where Data Meets Purpose.</h1>
             <img src={star} className="hidden xl:block object-contain flex-shrink-0"/>
             <img src={starMob} className=" xl:hidden flex-shrink-0"/>
