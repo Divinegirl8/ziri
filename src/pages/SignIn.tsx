@@ -2,12 +2,8 @@ import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import logo from '../assets/logo.svg'
 import laptop from '../assets/laptop.svg'
+import type { LoginFormData } from '../interface';
 
-interface LoginFormData {
-    email: string;
-    password: string;
-    rememberMe: boolean;
-}
 
 
 const SignIn: React.FC = () => {
@@ -48,7 +44,7 @@ const SignIn: React.FC = () => {
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 h-screen">
+        <div className="grid grid-cols-1 md:grid-cols-2 h-screen font-['Manrope']">
             <div className="h-full flex flex-col bg-gray-50">
                 <img className="max-w-68" src={logo} alt="logo.svg" />
                 <div className="flex w-full flex-col justify-center items-center h-full">
@@ -113,9 +109,9 @@ const SignIn: React.FC = () => {
                                 {isLoading ? 'Signing in...' : 'Sign In'}
                             </button>
 
-                            <p className="text-gray-400 text-center">
+                            {/* <p className="text-gray-400 text-center">
                                 Not an Admin? <a href="#" className="text-[14px] font-semibold text-blue-500">Switch role</a>
-                            </p>
+                            </p> */}
                         </form>
                     </div>
                 </div>
