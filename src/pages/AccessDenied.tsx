@@ -11,7 +11,7 @@ const AccessDenied: React.FC = () =>  {
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 h-screen font-['Manrope']">
-            <div className="h-full flex flex-col bg-gray-50">
+            <div className="h-full flex flex-col bg-gray-50 pb-5 ">
                 <img className="max-w-68" src={logo} alt="logo.svg" />
                 <div className="flex w-full flex-col justify-center items-center h-full">
                     <div className="w-full max-w-md mx-auto p-6 rounded-lg">
@@ -33,12 +33,12 @@ const AccessDenied: React.FC = () =>  {
                             </button>
                         </div>
 
-                        <p className="text-[16px] text-gray-500">
+                        {/* <p className="text-[16px] text-gray-500">
                             Not an Admin? <a href="#" className=" font-semibold text-blue-500">Switch role</a>
-                        </p>
+                        </p> */}
                     </div>
                 </div>
-                <p className="text-gray-400 p-8">
+                <p className="text-gray-400 pl-8 ">
                     © Gooziri 2025
                 </p>
             </div>
