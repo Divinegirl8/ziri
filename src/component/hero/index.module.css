@@ -1,8 +1,3 @@
-@media (min-width: 450px) and (max-width: 639px) {
-    .hero{
-        min-height: 100vh;
-    }
-}
 
 @media (min-width: 380px) and (max-width: 449px) {
     .hero{
@@ -18,11 +13,12 @@
     }
 }
 
-@media (min-width:360px) {
+@media (min-width:360px) and (max-width: 768px) {
     .heroTxt {
         font-size: 38px;
     }
 }
+
 
 
 @media (min-width:200px) and (max-width : 359px){
@@ -35,3 +31,5 @@
         font-size: 28px;
     }
 }
+
+
