@@ -10,7 +10,9 @@ export default function FinanceHomePage() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const { data } = await axios.get('https://gooziri.onrender.com/users/me');
+                const { data } = await axios.get('https://gooziri.onrender.com/users/me', {
+                    withCredentials: true,
+                });
                 setUserData(data);
             } catch (error) {
                 console.error('Error fetching user data:', error);
