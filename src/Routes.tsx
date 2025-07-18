@@ -1,5 +1,6 @@
 import SignIn from "./pages/SignIn";
 import WelcomePage from "./pages/WelcomePage";
+import AccessDenied from "./pages/AccessDenied.tsx";
 
 export const Routes = [
     {
@@ -9,5 +10,9 @@ export const Routes = [
     {
         path : "/signIn",
         element : <SignIn/>
+    },
+    {
+        path: "/accessDenied",
+        element: <AccessDenied />
     }
 ]
