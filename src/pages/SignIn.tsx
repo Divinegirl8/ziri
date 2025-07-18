@@ -70,7 +70,7 @@ const SignIn: React.FC = () => {
                             and data visibility.
                         </p>
 
-                        <form onSubmit={handleSignIn} className="flex-1 space-y-8">
+                        <form onSubmit={handleSignIn} className='flex-1 space-y-8'>
                             <div className="relative">
                                 <input
                                     type="email"
