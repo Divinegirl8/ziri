@@ -1,4 +1,4 @@
-import Hero from "../component/Hero";
+import Hero from "../component/hero/Hero";
 import Nav from "../component/Nav";
 
 const WelcomePage:React.FC = () =>{
