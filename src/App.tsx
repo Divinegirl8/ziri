@@ -1,16 +1,12 @@
 import './App.css'
-import {Route, Routes} from "react-router-dom";
-import SignIn from "./pages/SignIn.tsx";
+import {useRoutes} from "react-router-dom";
+import { Routes } from './Routes.tsx';
+
 
 function App() {
 
   return (
-    <>
-
-      <Routes>
-        <Route path="/" element={<SignIn />} />
-      </Routes>
-    </>
+    useRoutes(Routes)
   )
 }
 
