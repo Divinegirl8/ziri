@@ -39,17 +39,23 @@ const SignIn: React.FC = () => {
         setIsLoading(true);
         setError(null);
 
-        setTimeout(() => {
-            if (formData.email === '' || formData.password === '') {
-                setError('Email and password are required.');
-                setIsLoading(false);
-                return;
-            }}, 1500);
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!formData.email || !formData.password) {
+            setError('Email and password are required.');
+            setIsLoading(false);
+            return;
+        }
+        if (!emailRegex.test(formData.email)) {
+            setError('Please enter a valid email address.');
+            setIsLoading(false);
+            return;
+        }
+
         setTimeout(() => {
             setIsLoading(false);
             alert("Sign-in successful!");
             console.log('Sign-in successful:', formData);
-        }, 2000);
+        }, 1500);
     }
 
     return (
