@@ -132,7 +132,7 @@ const SignIn: React.FC = () => {
                 backgroundImage: `url(${laptop})`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "center 80%",
+                backgroundPosition: 'center 80%',
             }} className="hidden md:flex items-center justify-center">
 
             </div>
