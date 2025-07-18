@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import logo from '../assets/logo.svg'
 import laptop from '../assets/laptop.svg'
@@ -16,6 +16,15 @@ const SignIn: React.FC = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [isFormValid, setIsFormValid] = useState(false);
+
+    useEffect(() => {
+        if (formData.email === '' || formData.password === '') {
+            setIsFormValid(false);
+            return;
+        }
+        setIsFormValid(true);
+    }, [formData]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value, type, checked } = e.target;
@@ -104,7 +113,7 @@ const SignIn: React.FC = () => {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
+                                className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${ isFormValid ? "bg-blue-600 hover:bg-blue-700" : "bg-violet-200" }  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
                             >
                                 {isLoading ? 'Signing in...' : 'Sign In'}
                             </button>
@@ -115,12 +124,15 @@ const SignIn: React.FC = () => {
                         </form>
                     </div>
                 </div>
+                <p className="text-gray-400 p-8">
+                    © Gooziri 2025
+                </p>
             </div>
             <div style={{
                 backgroundImage: `url(${laptop})`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "center 80%",
+                backgroundPosition: 'center 80%',
             }} className="hidden md:flex items-center justify-center">
 
             </div>
