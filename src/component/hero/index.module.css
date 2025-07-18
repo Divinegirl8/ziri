@@ -18,11 +18,12 @@
     }
 }
 
-@media (min-width:360px) {
+@media (min-width:360px) and (max-width: 768px) {
     .heroTxt {
         font-size: 38px;
     }
 }
+
 
 
 @media (min-width:200px) and (max-width : 359px){
