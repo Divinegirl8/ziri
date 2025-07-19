@@ -3,10 +3,12 @@ import { Eye, EyeOff } from 'lucide-react';
 import logo from '../assets/logo.svg'
 import laptop from '../assets/laptop.svg'
 import type { LoginFormData } from '../interface';
-
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 
 const SignIn: React.FC = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState<LoginFormData>({
         email: '',
         password: '',
@@ -34,7 +36,7 @@ const SignIn: React.FC = () => {
         }));
     };
 
-    const handleSignIn = (e: React.FormEvent) => {
+    const handleSignIn = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
         setError(null);
@@ -51,11 +53,23 @@ const SignIn: React.FC = () => {
             return;
         }
 
-        setTimeout(() => {
+        const payload = {
+            email: formData.email,
+            password: formData.password,
+        }
+
+        try {
+            const { data } = await axios.post('https://gooziri.onrender.com/auth/login', payload)
+            console.log('Sign-in successful:', data);
             setIsLoading(false);
             alert("Sign-in successful!");
-            console.log('Sign-in successful:', formData);
-        }, 1500);
+            navigate("/financeDashboard")
+        } catch (error) {
+            setIsLoading(false);
+            console.error('Sign-in error:', error);
+            setError('Invalid email or password. Please try again.');
+            setIsLoading(false);
+        }
     }
 
     return (

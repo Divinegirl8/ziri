@@ -17,7 +17,7 @@ export const Routes = [
         element: <AccessDenied />
     },
     {
-        path: "/dashboard",
+        path: "/financeDashboard",
         element: <FinanceHomePage />
     }
 ]
