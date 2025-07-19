@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import {
     HomeIcon,
     UsersIcon,
-    ClockIcon,
-    CalendarIcon,
     SettingsIcon,
     ChevronLeftIcon,
     ChevronRightIcon,
@@ -95,10 +93,6 @@ export const Sidebar: React.FC<{ isOpen: boolean; setIsOpen: React.Dispatch<Reac
                         {isOpen ? <ChevronLeftIcon className="w-2.5 h-2.5" /> : <ChevronRightIcon className="w-3 h-3" />}
                     </button>
                 </div>
-
-                {/*<div className={`p-4 flex justify-center ${!isOpen ? 'block' : 'hidden'}`}>*/}
-                {/*    <GooziriLogo className="w-9 h-9" />*/}
-                {/*</div>*/}
 
 
                 <nav className="flex-1 flex flex-col justify-between h-full px-5 mt-4 ">
