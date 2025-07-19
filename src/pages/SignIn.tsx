@@ -3,10 +3,12 @@ import { Eye, EyeOff } from 'lucide-react';
 import logo from '../assets/logo.svg'
 import laptop from '../assets/laptop.svg'
 import type { LoginFormData } from '../interface';
-
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 
 const SignIn: React.FC = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState<LoginFormData>({
         email: '',
         password: '',
@@ -34,22 +36,40 @@ const SignIn: React.FC = () => {
         }));
     };
 
-    const handleSignIn = (e: React.FormEvent) => {
+    const handleSignIn = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
         setError(null);
 
-        setTimeout(() => {
-            if (formData.email === '' || formData.password === '') {
-                setError('Email and password are required.');
-                setIsLoading(false);
-                return;
-            }}, 1500);
-        setTimeout(() => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!formData.email || !formData.password) {
+            setError('Email and password are required.');
+            setIsLoading(false);
+            return;
+        }
+        if (!emailRegex.test(formData.email)) {
+            setError('Please enter a valid email address.');
+            setIsLoading(false);
+            return;
+        }
+
+        const payload = {
+            email: formData.email,
+            password: formData.password,
+        }
+
+        try {
+            const { data } = await axios.post('https://gooziri.onrender.com/auth/login', payload)
+            console.log('Sign-in successful:', data);
             setIsLoading(false);
             alert("Sign-in successful!");
-            console.log('Sign-in successful:', formData);
-        }, 2000);
+            navigate("/financeDashboard")
+        } catch (error) {
+            setIsLoading(false);
+            console.error('Sign-in error:', error);
+            setError('Invalid email or password. Please try again.');
+            setIsLoading(false);
+        }
     }
 
     return (
@@ -64,7 +84,7 @@ const SignIn: React.FC = () => {
                             and data visibility.
                         </p>
 
-                        <form onSubmit={handleSignIn} className="flex-1 space-y-8">
+                        <form onSubmit={handleSignIn} className='flex-1 space-y-8'>
                             <div className="relative">
                                 <input
                                     type="email"

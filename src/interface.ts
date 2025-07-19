@@ -13,4 +13,9 @@ export interface FilledButtonProps {
     rememberMe: boolean;
 }
 
-  
+export interface UserData {
+  fullName: string;
+  email?: string;
+  id?: string;
+
+}
